@@ -1,5 +1,7 @@
 function goctl#Format() abort
-    exec "silent !goctl api format --dir . | e"
+    let mes = execute("!goctl api format --dir .")
+    echo $mes
+    exec "e"
 endfunction
 
 " func! GoctlDiagnostic()
