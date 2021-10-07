@@ -1,5 +1,6 @@
 func! GoctlFormat()
     exec "silent !goctl api format --dir ."
+    exec "e"
 endfunction
 
 func! GoctlDiagnostic()
@@ -7,7 +8,7 @@ func! GoctlDiagnostic()
 endfunction
     
 
-autocmd BufWritePre *.api :silent call GoctlDiagnostic()
+autocmd BufWritePre *.api :call GoctlDiagnostic()
 autocmd BufWritePost *.api :silent call GoctlFormat()
 
 autocmd FileType goctl nmap bd :!goctl api go -api % -dir %:h<CR>
