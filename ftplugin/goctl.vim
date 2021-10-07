@@ -1,4 +1,4 @@
-function! goctl#Format() abort
+func! goctl#Format()
     exec "!goctl api validate --api %"
     exec "!goctl api format --dir ."
     exec ":e"
