@@ -1,6 +1,5 @@
 function goctl#Format() abort
-    exec "silent !goctl api format --dir ."
-    exec "e"
+    exec "silent !goctl api format --dir . | e"
 endfunction
 
 " func! GoctlDiagnostic()
