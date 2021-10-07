@@ -1,9 +1,13 @@
-func! goctl#Format()
-    exec "!goctl api validate --api %"
-    exec "!goctl api format --dir ."
-    exec ":e"
+func! GoctlFormat()
+    exec "silent !goctl api format --dir ."
 endfunction
 
-autocmd BufWritePost *.api :silent call goctl#Format()
+func! GoctlDiagnostic()
+    exec "!goctl api validate --api %"
+endfunction
+    
+
+autocmd BufWritePre *.api :silent call GoctlDiagnostic()
+autocmd BufWritePost *.api :silent call GoctlFormat()
 
 autocmd FileType goctl nmap bd :!goctl api go -api % -dir %:h<CR>
