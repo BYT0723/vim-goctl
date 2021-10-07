@@ -1,6 +1,9 @@
-function goctl#Format() abort
+function! goctl#Format()
     let mes = execute("!goctl api format --dir .")
     echo $mes
+endfunction
+
+function goctl#Refresh()
     exec "e"
 endfunction
 
